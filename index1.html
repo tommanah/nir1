@@ -1,0 +1,39 @@
+<!doctype HTML>
+<html>
+<head>
+    <title>Простой пример WebAR</title>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .info {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 999;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        Наведите камеру на маркер Hiro для просмотра 3D куба
+    </div>
+    
+    <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
+        <!-- Создаем красный куб, который появится над маркером -->
+        <a-box position='0 0.5 0' material='opacity: 0.8; color: red;' scale="0.5 0.5 0.5" rotation="0 45 0"></a-box>
+        
+        <!-- Использование стандартного маркера Hiro -->
+        <a-marker-camera preset='hiro'></a-marker-camera>
+    </a-scene>
+</body>
+</html>
